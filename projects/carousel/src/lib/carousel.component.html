@@ -1,0 +1,47 @@
+<div class="carousel-wrap"
+     [class.m-carousel-wrap]="isMobile()"
+     [class.p-carousel-wrap]="!isMobile()"
+     (mouseover)="carouselMouseOver()"
+     (mouseout)="carouselMouseOut()">
+  <div class="carousel"
+       #carouselBody
+       [ngStyle]="{'width': (100 * (carouselList().length)) + '%'}"
+       [style.transform]="'translateX(-' + (100 / carouselList().length) * activeIndex() + '%)'">
+    @for (carousel of carouselList(); track carousel; let i = $index) {
+      <div class="carousel-slide" [ngStyle]="{'width': (100 / (carouselList().length)) + '%'}">
+        @if (!carousel.link) {
+          <div class="carousel-img"
+               [style.background-image]="'url(' + carousel.url + ')'"
+               [title]="carousel.caption"></div>
+        } @else {
+          <a class="carousel-link"
+             [href]="carousel.link"
+             [title]="carousel.caption"
+             (click)="clickCarousel(carousel)"
+             [target]="carousel.target">
+            <div class="carousel-img" [style.background-image]="'url(' + carousel.url + ')'"></div>
+          </a>
+        }
+      </div>
+    }
+  </div>
+  <div class="indicator">
+    <div class="caption">
+      @if (carouselList()[activeIndex()]) {
+        <a [href]="carouselList()[activeIndex()].link"
+           [title]="carouselList()[activeIndex()].title"
+           (click)="clickCarousel(carouselList()[activeIndex()])">{{ carouselList()[activeIndex()].title }}</a>
+      }
+    </div>
+    <ul class="dots">
+      @for (i of indicatorRange(); track i) {
+        <li [class.active]="activeIndex() === i || i === 0 && activeIndex() === carouselList().length - 1"
+            [class.revert]="isRevert() && activeIndex() === i"
+            (click)="switchCarousel(i)">
+          <div class="before"></div>
+          <div class="after"></div>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
