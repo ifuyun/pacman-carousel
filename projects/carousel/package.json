@@ -1,12 +1,32 @@
 {
   "name": "pacman-carousel",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "High-performance Pac-Man carousel component for Angular",
+  "keywords": [
+    "carousel",
+    "pacman",
+    "wallpaper",
+    "angular"
+  ],
+  "author": {
+    "name": "Fuyun",
+    "url": "https://www.ifuyun.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ifuyun/pacman-carousel#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifuyun/pacman-carousel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ifuyun/pacman-carousel/issues"
+  },
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
-    "@angular/core": "^21.0.0"
+    "@angular/common": "^21.0.1",
+    "@angular/core": "^21.0.1"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.8.1"
   },
   "sideEffects": false
 }

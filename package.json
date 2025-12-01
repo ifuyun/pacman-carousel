@@ -1,6 +1,6 @@
 {
   "name": "pacman-carousel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "High-performance Pac-Man carousel component for Angular",
   "keywords": [
     "carousel",

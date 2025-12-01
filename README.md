@@ -23,7 +23,7 @@ Requirements: Angular 20+, TypeScript 5.9+
 Import and use directly in any component (Standalone):
 
 ```ts
-// app.component.ts
+// app.ts
 import { Component, signal } from '@angular/core';
 import { Carousel, CarouselComponent } from 'pacman-carousel';
 
@@ -76,7 +76,7 @@ export class App {
 ```
 
 ```html
-<!-- app.component.html -->
+<!-- app.html -->
 <div style="display: flex; justify-content: center; margin: 24px">
   <pacman-carousel [carousels]="carousels()" (click)="onCarouselClick($event)"></pacman-carousel>
 </div>
