@@ -21,7 +21,9 @@ import { Carousel } from './carousel.interface';
 })
 export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   carousels = input<Carousel[]>([]);
-  isMobile = input<boolean>(false);
+  width = input<string>('720px');
+  height = input<string>('360px');
+  indicatorPadding = input<string>('16px 24px');
   isBrowser = input<boolean>(true);
   click = output<Carousel>();
 

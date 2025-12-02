@@ -1,11 +1,11 @@
 <div class="carousel-wrap"
-     [class.m-carousel-wrap]="isMobile()"
-     [class.p-carousel-wrap]="!isMobile()"
+     [style.width]="width()"
      (mouseover)="carouselMouseOver()"
      (mouseout)="carouselMouseOut()">
   <div class="carousel"
        #carouselBody
-       [ngStyle]="{'width': (100 * (carouselList().length)) + '%'}"
+       [style.width]="(100 * (carouselList().length)) + '%'"
+       [style.height]="height()"
        [style.transform]="'translateX(-' + (100 / carouselList().length) * activeIndex() + '%)'">
     @for (carousel of carouselList(); track carousel; let i = $index) {
       <div class="carousel-slide" [ngStyle]="{'width': (100 / (carouselList().length)) + '%'}">
@@ -25,7 +25,7 @@
       </div>
     }
   </div>
-  <div class="indicator">
+  <div class="indicator" [style.padding]="indicatorPadding()">
     <div class="caption">
       @if (carouselList()[activeIndex()]) {
         <a [href]="carouselList()[activeIndex()].link"

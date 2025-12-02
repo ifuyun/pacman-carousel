@@ -1,6 +1,6 @@
 {
   "name": "pacman-carousel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "High-performance Pac-Man carousel component for Angular",
   "keywords": [
     "carousel",
@@ -23,11 +23,15 @@
   },
   "scripts": {
     "start": "ng serve demo",
-    "build:carousel": "ng build carousel",
+    "build": "npm run build:carousel && npm run build:md",
+    "build:carousel": "ng build carousel --configuration production",
+    "build:md": "cp README.md dist/carousel/README.md",
+    "publish": "npm publish ./dist/carousel",
     "watch:carousel": "ng build carousel --watch --configuration development",
     "watch:demo": "ng build demo --watch --configuration development",
     "format": "prettier --write \"projects/**/*.ts\"",
-    "test": "ng test"
+    "test": "ng test carousel",
+    "test:watch": "ng test carousel --watch"
   },
   "dependencies": {
     "@angular/common": "^21.0.1",

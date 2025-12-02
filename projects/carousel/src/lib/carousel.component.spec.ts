@@ -58,15 +58,18 @@ describe('CarouselComponent', () => {
     expect(component.indicatorRange().length).toBe(1);
   });
 
-  it('toggles mobile/desktop classes', async () => {
+  it('applies width, height, and indicator padding styles', async () => {
     fixture.componentRef.setInput('carousels', [A]);
+    fixture.componentRef.setInput('width', '800px');
+    fixture.componentRef.setInput('height', '400px');
+    fixture.componentRef.setInput('indicatorPadding', '12px 16px');
     fixture.detectChanges();
     const wrap: HTMLElement = fixture.nativeElement.querySelector('.carousel-wrap');
-    expect(wrap.classList.contains('p-carousel-wrap')).toBe(true);
-    fixture.componentRef.setInput('isMobile', true);
-    fixture.detectChanges();
-    expect(wrap.classList.contains('m-carousel-wrap')).toBe(true);
-    expect(wrap.classList.contains('p-carousel-wrap')).toBe(false);
+    const body: HTMLElement = fixture.nativeElement.querySelector('.carousel');
+    const indicator: HTMLElement = fixture.nativeElement.querySelector('.indicator');
+    expect(wrap.style.width).toBe('800px');
+    expect(body.style.height).toBe('400px');
+    expect(indicator.style.padding).toBe('12px 16px');
   });
 
   it('starts RAF and adds visibility listener when isBrowser=true', async () => {

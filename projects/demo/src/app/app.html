@@ -1,3 +1,16 @@
+<!--PC-->
 <div style="display: flex; justify-content: center; margin: 24px">
-  <pacman-carousel [carousels]="carousels()" (click)="onCarouselClick($event)"></pacman-carousel>
+  <pacman-carousel [carousels]="carousels()"
+                   width="720px"
+                   height="360px"
+                   indicatorPadding="16px 24px"
+                   (click)="onCarouselClick($event)"></pacman-carousel>
+</div>
+<!--Mobile-->
+<div style="display: flex; justify-content: center; margin: 24px">
+  <pacman-carousel [carousels]="carousels()"
+                   width="100%"
+                   height="210px"
+                   indicatorPadding="1rem"
+                   (click)="onCarouselClick($event)"></pacman-carousel>
 </div>

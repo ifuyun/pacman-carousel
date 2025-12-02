@@ -1,6 +1,8 @@
 # Pacman Carousel
 
-High-performance Pac-Man–style Angular carousel component for both mobile and desktop.
+High-performance Pac-Man–style Angular carousel component.
+
+中文文档: `README.zh-CN.md`
 
 Live demo: [`www.ifuyun.com`](https://www.ifuyun.com).
 
@@ -78,14 +80,20 @@ export class App {
 ```html
 <!-- app.html -->
 <div style="display: flex; justify-content: center; margin: 24px">
-  <pacman-carousel [carousels]="carousels()" (click)="onCarouselClick($event)"></pacman-carousel>
+  <pacman-carousel [carousels]="carousels()"
+                   [width]="'720px'"
+                   [height]="'360px'"
+                   [indicatorPadding]="'16px 24px'"
+                   (click)="onCarouselClick($event)"></pacman-carousel>
 </div>
 ```
 
 ## API Overview
 - Input `carousels: Carousel[]`: the carousel data (at least 1 item)
-- Input `isMobile?: boolean`: whether to use mobile styles, default false
-- Input `isBrowser?: boolean`: client-side rendering flag, default true
+- Input `width: string` (default `'720px'`): container width
+- Input `height: string` (default `'360px'`): carousel height
+- Input `indicatorPadding: string` (default `'16px 24px'`): indicator bar padding
+- Input `isBrowser?: boolean` (default `true`): client-side rendering flag
 - Output `click: OutputEmitterRef<Carousel>`: emitted when a slide is clicked
 
 `Carousel` interface:

@@ -1,6 +1,8 @@
 # Pacman Carousel
 
-吃豆人（Pac-Man）风格的高性能 Angular 轮播图组件，支持移动端与桌面端。
+吃豆人（Pac-Man）风格的高性能 Angular 轮播图组件。
+
+English: `README.md`
 
 完整效果参见：[`www.ifuyun.com`](https://www.ifuyun.com)。
 
@@ -23,7 +25,7 @@ npm i pacman-carousel
 在任意组件中直接导入并使用（Standalone）：
 
 ```ts
-// app.component.ts
+// app.ts
 import { Component, signal } from '@angular/core';
 import { Carousel, CarouselComponent } from 'pacman-carousel';
 
@@ -76,18 +78,23 @@ export class App {
 ```
 
 ```html
-<!-- app.component.html -->
+<!-- app.html -->
 <div style="display: flex; justify-content: center; margin: 24px">
-  <pacman-carousel [carousels]="carousels()" (click)="onCarouselClick($event)"></pacman-carousel>
-  
+  <pacman-carousel [carousels]="carousels()"
+                   [width]="'720px'"
+                   [height]="'360px'"
+                   [indicatorPadding]="'16px 24px'"
+                   (click)="onCarouselClick($event)"></pacman-carousel>
 </div>
 ```
 
 ## API 概览
-- 输入 `carousels: Carousel[]`：轮播图数据（至少 1 项）。
-- 输入 `isMobile?: boolean`：是否使用移动端样式，默认 false。
-- 输入 `isBrowser?: boolean`：是否客户端模式（CSR），默认 true。
-- 输出 `click: OutputEmitterRef<Carousel>`：点击轮播图时触发。
+- 输入 `carousels: Carousel[]`：轮播图数据（至少 1 项）
+- 输入 `width: string`（默认 `'720px'`）：容器宽度
+- 输入 `height: string`（默认 `'360px'`）：轮播高度
+- 输入 `indicatorPadding: string`（默认 `'16px 24px'`）：指示器栏内边距
+- 输入 `isBrowser?: boolean`（默认 `true`）：是否客户端模式（CSR）
+- 输出 `click: OutputEmitterRef<Carousel>`：点击轮播图时触发
 
 `Carousel` 接口定义：
 - `id: string`
